@@ -123,19 +123,27 @@ if (loginForm) {
 }
 
 
-/* LOGOUT */
+
 
 function logout() {
 
-    localStorage.removeItem(
-        "campusUser"
-    );
+    // Remove logged-in user
+    localStorage.removeItem("campusUser");
 
-    alert(
-        "You have been logged out."
-    );
+    // Go to login page
+    window.location.href = "login.html";
+}
 
-    window.location.href =
-        "index.html";
+
+// CHECK LOGIN STATUS
+
+function checkLogin() {
+
+    const user = localStorage.getItem("campusUser");
+
+    if (!user) {
+        window.location.href = "login.html";
+    }
 
 }
+```
